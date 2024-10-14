@@ -1,0 +1,7 @@
+<h1>{% if not object %}Add Room{% else %}Edit Room{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'room_list' %}">Cancel</a>

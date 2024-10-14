@@ -1,0 +1,19 @@
+<h1>{{ hotel.name }}</h1>
+<p>Address: {{ hotel.address }}</p>
+<p>Capacity: {{ hotel.capacity }}</p>
+
+<h2>Rooms</h2>
+<ul>
+    {% for room in hotel.rooms.all %}
+        <li>Room {{ room.number }} - {{ room.get_type_display }} at ${{ room.rate }} per night
+            <a href="{% url 'room_detail' room.id %}">View</a>
+            <a href="{% url 'room_update' room.id %}">Edit</a>
+            <a href="{% url 'room_delete' room.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <li>No rooms available</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'room_create' hotel.id %}">Add New Room</a>
+<a href="{% url 'hotel_list' %}">Back to Hotel List</a>

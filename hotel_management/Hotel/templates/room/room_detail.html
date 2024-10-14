@@ -1,0 +1,5 @@
+<h1>Room {{ room.number }}</h1>
+<p>Type: {{ room.type }}</p>
+<p>Rate: ${{ room.rate }}/night</p>
+<p>Hotel Name : <a href="{% url 'hotel_detail' room.hotel.id %}">{{ room.hotel.name }}</a></p>
+<a href="{% url 'room_list' %}">Back to List</a>
